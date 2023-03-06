@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 99e038f261813e5d0a828914f3ef7c53
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - communaxeRef: {fileID: 632093211763649094, guid: 8967818516b3c7f3683c848a3e47c53d, type: 3}
+  - communbowRef: {fileID: 3025473030960452620, guid: 85dcd23fdff9aefccb5aec78cd169187, type: 3}
+  - communmaceRef: {fileID: 5372144982551339948, guid: 7a23fb56726195eebbb95f33ee756e2b, type: 3}
+  - rareaxeRef: {fileID: 5421741362319649600, guid: c73a6fe36c247a403a4d5214ad5ed2ce, type: 3}
+  - rarebowRef: {fileID: 1173946526406346457, guid: 0f33f5891ddcde899bc843f8232b4cec, type: 3}
+  - raremaceRef: {fileID: 1360706063001398961, guid: 1aec485dea68d3e388109984ddcb8463, type: 3}
+  - lengendaryaxeRef: {fileID: -4602927797560920527, guid: 3fdb2051a08a0f75680231ee867aa55a, type: 3}
+  - lengendarybowRef: {fileID: 7477574341297919525, guid: 022dc5da4b1759e65a5b9e54cdb0c3f2, type: 3}
+  - lengendarymaceRef: {fileID: 4934798761802330517, guid: db2ce71725dae99d390bafc26c860b95, type: 3}
+  - healthPotionRef: {fileID: 4371655926878158585, guid: bc62d7809fcedb1cea17cbc3ef99affd, type: 3}
+  - shieldPotionRef: {fileID: 442093467, guid: d4876c2f47657a2a0aafd7f11691e23b, type: 3}
+  - boostPotionRef: {fileID: 3235707694969625458, guid: d1f028bcfe2bfb47d861379c05362644, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

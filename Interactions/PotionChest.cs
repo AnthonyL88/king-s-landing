@@ -1,31 +1,27 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using TMPro;
-using Random = UnityEngine.Random;
 
-public class Chest : MonoBehaviour
+public class PotionChest : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //for opening and closing the chest
     private bool _isInsideTrigger = false;
     private bool _isOpen = false;
     private Animator _chestAnimatorRef;
     private static readonly int IsOpen = Animator.StringToHash("isOpen?");
     private Transform _openTextRef;
     private Transform _closeTextRef;
-    public Rigidbody axeRef;
-    //private Transform _axeCreateRef;
-    public Rigidbody bowRef;
-    //private Transform _bowCreateRef;
-    public Rigidbody maceRef;
-    //private Transform _maceCreateRef;
-    private Transform _weaponCreateRef;
+    
+    // for chest loot
     public Rigidbody healthPotionRef;
     public Rigidbody shieldPotionRef;
     public Rigidbody boostPotionRef;
     private Transform _potionCreateRef;
+    private Transform _keyCreateRef;
+    public Rigidbody basickeyRef;
+    public Rigidbody communkeyRef;
+    public Rigidbody rarekeyRef;
+    public Rigidbody legendarykeyRef;
     private int _spawnonetime = 1; // prevent from spawning infite loot
 
     // Update is called once per frame
@@ -44,50 +40,57 @@ public class Chest : MonoBehaviour
                     _closeTextRef.gameObject.SetActive(true);
                     _openTextRef.gameObject.SetActive(false);
 
-                    int weaponprob = Random.Range(1, 4);
-                    if (weaponprob == 1)
+                    int keyprob = Random.Range(1, 11);
+                    if (keyprob is > 0 and < 5)
                     {
                         // create an axe
-                        Rigidbody axeInstance;
-                        axeInstance = Instantiate(axeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                        axeInstance.AddForce(0f, 150f, 50f);
+                        Rigidbody keyInstance;
+                        keyInstance = Instantiate(basickeyRef, _keyCreateRef.position, _keyCreateRef.rotation) as Rigidbody;
+                        keyInstance.AddForce(0f, 150f, 30f);
                     }
-
-                    if (weaponprob == 2)
+                    
+                    if (keyprob is > 4 and < 8)
                     {
-                        Rigidbody bowInstance;
-                        bowInstance = Instantiate(bowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                        bowInstance.AddForce(0f, 150f, 50f);
+                        Rigidbody keyInstance;
+                        keyInstance = Instantiate(communkeyRef, _keyCreateRef.position, _keyCreateRef.rotation) as Rigidbody;
+                        keyInstance.AddForce(0f, 150f, 30f);
                     }
 
-                    if (weaponprob == 3)
+                    if (keyprob is > 7 and < 10)
                     {
-                        Rigidbody maceInstance;
-                        maceInstance = Instantiate(maceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                        maceInstance.AddForce(0f, 150f, 50f);
+                        Rigidbody keyInstance;
+                        keyInstance = Instantiate(rarekeyRef, _keyCreateRef.position, _keyCreateRef.rotation) as Rigidbody;
+                        keyInstance.AddForce(0f, 150f, 30f);
+                    }
+                    
+                    if (keyprob is > 9 and < 11)
+                    {
+                        Rigidbody keyInstance;
+                        keyInstance = Instantiate(legendarykeyRef, _keyCreateRef.position, _keyCreateRef.rotation) as Rigidbody;
+                        keyInstance.AddForce(0f, 150f, 30f);
                     }
 
-                    int potionprob = Random.Range(1, 10);
+                    int potionprob = Random.Range(1, 11);
 
-                    if (potionprob is > 2 and < 6)
+                    if (potionprob is > 2 and < 7)
                     {
                         Rigidbody healthpotionInstance;
                         healthpotionInstance = Instantiate(healthPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                        healthpotionInstance.AddForce(0f, 150f, 50f);
+                        healthpotionInstance.AddForce(0f, 150f, 30f);
                     }
 
-                    if (potionprob is > 5 and < 8)
+                    if (potionprob is > 6 and < 10)
                     {
                         Rigidbody shieldpotionInstance;
                         shieldpotionInstance = Instantiate(shieldPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                        shieldpotionInstance.AddForce(0f, 150f, 50f);
+                        shieldpotionInstance.AddForce(0f, 150f, 30f);
                     }
 
-                    if (potionprob is > 8 and < 11)
+                    if (potionprob is > 9 and < 12)
                     {
                         Rigidbody boostpotionInstance;
                         boostpotionInstance = Instantiate(boostPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                        boostpotionInstance.AddForce(0f, 150f, 50f);
+                        boostpotionInstance.AddForce(0f, 150f, 30f);
                     }
 
                     _spawnonetime++;
@@ -115,20 +118,20 @@ public class Chest : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Chest")) // can chest be opened?
+        if (other.gameObject.CompareTag("PotionChest")) // can chest be opened?
         {
             _isInsideTrigger = true;
             // Refrences to the chidren of the chest base object
-            Transform chestRef = other.transform.parent.Find("ChestA");
+            Transform chestRef = other.transform.parent.Find("PotionChest");
             Animator chestAnimator = chestRef.GetComponent<Animator>();
             _chestAnimatorRef = chestAnimator;
 
-            _weaponCreateRef = other.transform.parent.Find("weaponCreatepoint");
+            _keyCreateRef = other.transform.parent.Find("keyCreatepoint");
             _potionCreateRef = other.transform.parent.Find("potionCreatepoint");
             
 
-            Transform OpenText = other.transform.parent.Find("open e chestA tag");
-            Transform CloseText = other.transform.parent.Find("close e chestA tag");
+            Transform OpenText = other.transform.parent.Find("open e potionchest tag");
+            Transform CloseText = other.transform.parent.Find("close e potionchest tag");
             _openTextRef = OpenText;
             _closeTextRef = CloseText;
 
@@ -149,7 +152,7 @@ public class Chest : MonoBehaviour
     
     void OnTriggerExit (Collider other)
     {
-        if (other.gameObject.CompareTag("Chest")) //close chest
+        if (other.gameObject.CompareTag("PotionChest")) //close chest
         {
             _isInsideTrigger = false;
             _closeTextRef.gameObject.SetActive(false);

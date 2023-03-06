@@ -1,26 +1,27 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using TMPro;
-using Random = UnityEngine.Random;
 
-public class Chest : MonoBehaviour
+public class CommunChest : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //for opening and closing the chest
     private bool _isInsideTrigger = false;
     private bool _isOpen = false;
     private Animator _chestAnimatorRef;
     private static readonly int IsOpen = Animator.StringToHash("isOpen?");
     private Transform _openTextRef;
     private Transform _closeTextRef;
-    public Rigidbody axeRef;
-    //private Transform _axeCreateRef;
-    public Rigidbody bowRef;
-    //private Transform _bowCreateRef;
-    public Rigidbody maceRef;
-    //private Transform _maceCreateRef;
+    
+    // for chest loot
+    public Rigidbody communaxeRef;
+    public Rigidbody communbowRef;
+    public Rigidbody communmaceRef;
+    public Rigidbody rareaxeRef;
+    public Rigidbody rarebowRef;
+    public Rigidbody raremaceRef;
+    public Rigidbody lengendaryaxeRef;
+    public Rigidbody lengendarybowRef;
+    public Rigidbody lengendarymaceRef;
     private Transform _weaponCreateRef;
     public Rigidbody healthPotionRef;
     public Rigidbody shieldPotionRef;
@@ -44,46 +45,88 @@ public class Chest : MonoBehaviour
                     _closeTextRef.gameObject.SetActive(true);
                     _openTextRef.gameObject.SetActive(false);
 
-                    int weaponprob = Random.Range(1, 4);
-                    if (weaponprob == 1)
+                    int weaponprob = Random.Range(1, 22);
+                    if (weaponprob is > 3 and < 7)
                     {
                         // create an axe
                         Rigidbody axeInstance;
-                        axeInstance = Instantiate(axeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        axeInstance = Instantiate(communaxeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
                         axeInstance.AddForce(0f, 150f, 50f);
                     }
-
-                    if (weaponprob == 2)
+                    
+                    if (weaponprob is > 6 and < 10)
                     {
                         Rigidbody bowInstance;
-                        bowInstance = Instantiate(bowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        bowInstance = Instantiate(communbowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
                         bowInstance.AddForce(0f, 150f, 50f);
                     }
 
-                    if (weaponprob == 3)
+                    if (weaponprob is > 9 and < 13)
                     {
                         Rigidbody maceInstance;
-                        maceInstance = Instantiate(maceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        maceInstance = Instantiate(communmaceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        maceInstance.AddForce(0f, 150f, 50f);
+                    }
+                    
+                    if (weaponprob is > 12 and < 15)
+                    {
+                        Rigidbody axeInstance;
+                        axeInstance = Instantiate(rareaxeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        axeInstance.AddForce(0f, 150f, 50f);
+                    }
+                    
+                    if (weaponprob is > 14 and < 17)
+                    {
+                        Rigidbody bowInstance;
+                        bowInstance = Instantiate(rarebowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        bowInstance.AddForce(0f, 150f, 50f);
+                    }
+                    
+                    if (weaponprob is > 16 and < 19)
+                    {
+                        Rigidbody maceInstance;
+                        maceInstance = Instantiate(raremaceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        maceInstance.AddForce(0f, 150f, 50f);
+                    }
+                    
+                    if (weaponprob == 19)
+                    {
+                        Rigidbody axeInstance;
+                        axeInstance = Instantiate(lengendaryaxeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        axeInstance.AddForce(0f, 150f, 50f);
+                    }
+                    
+                    if (weaponprob == 20)
+                    {
+                        Rigidbody bowInstance;
+                        bowInstance = Instantiate(lengendarybowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                        bowInstance.AddForce(0f, 150f, 50f);
+                    }
+                    
+                    if (weaponprob == 21)
+                    {
+                        Rigidbody maceInstance;
+                        maceInstance = Instantiate(lengendarymaceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
                         maceInstance.AddForce(0f, 150f, 50f);
                     }
 
                     int potionprob = Random.Range(1, 10);
 
-                    if (potionprob is > 2 and < 6)
+                    if (potionprob is > 2 and < 7)
                     {
                         Rigidbody healthpotionInstance;
                         healthpotionInstance = Instantiate(healthPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
                         healthpotionInstance.AddForce(0f, 150f, 50f);
                     }
 
-                    if (potionprob is > 5 and < 8)
+                    if (potionprob is > 6 and < 10)
                     {
                         Rigidbody shieldpotionInstance;
                         shieldpotionInstance = Instantiate(shieldPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
                         shieldpotionInstance.AddForce(0f, 150f, 50f);
                     }
 
-                    if (potionprob is > 8 and < 11)
+                    if (potionprob == 10)
                     {
                         Rigidbody boostpotionInstance;
                         boostpotionInstance = Instantiate(boostPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
@@ -115,11 +158,11 @@ public class Chest : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Chest")) // can chest be opened?
+        if (other.gameObject.CompareTag("CommunChest")) // can chest be opened?
         {
             _isInsideTrigger = true;
             // Refrences to the chidren of the chest base object
-            Transform chestRef = other.transform.parent.Find("ChestA");
+            Transform chestRef = other.transform.parent.Find("CommunChest");
             Animator chestAnimator = chestRef.GetComponent<Animator>();
             _chestAnimatorRef = chestAnimator;
 
@@ -127,8 +170,8 @@ public class Chest : MonoBehaviour
             _potionCreateRef = other.transform.parent.Find("potionCreatepoint");
             
 
-            Transform OpenText = other.transform.parent.Find("open e chestA tag");
-            Transform CloseText = other.transform.parent.Find("close e chestA tag");
+            Transform OpenText = other.transform.parent.Find("open e communchest tag");
+            Transform CloseText = other.transform.parent.Find("close e communchest tag");
             _openTextRef = OpenText;
             _closeTextRef = CloseText;
 
@@ -149,7 +192,7 @@ public class Chest : MonoBehaviour
     
     void OnTriggerExit (Collider other)
     {
-        if (other.gameObject.CompareTag("Chest")) //close chest
+        if (other.gameObject.CompareTag("CommunChest")) //close chest
         {
             _isInsideTrigger = false;
             _closeTextRef.gameObject.SetActive(false);

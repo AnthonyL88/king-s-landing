@@ -1,13 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using TMPro;
-using Random = UnityEngine.Random;
 
-public class Chest : MonoBehaviour
+public class TestChest : MonoBehaviour
 {
+    public Rigidbody testchestref;
     // Start is called before the first frame update
     private bool _isInsideTrigger = false;
     private bool _isOpen = false;
@@ -26,7 +23,7 @@ public class Chest : MonoBehaviour
     public Rigidbody shieldPotionRef;
     public Rigidbody boostPotionRef;
     private Transform _potionCreateRef;
-    private int _spawnonetime = 1; // prevent from spawning infite loot
+    public int Spawnonetime = 1;
 
     // Update is called once per frame
     void Update()
@@ -36,9 +33,9 @@ public class Chest : MonoBehaviour
             if (Input.GetButtonDown("E"))
             {
                 _isOpen = true; // is chest open or not
-                _chestAnimatorRef.SetBool(IsOpen , _isOpen); // open or close the chest with animation
+                _chestAnimatorRef.SetBool(IsOpen, _isOpen); // open or close the chest with animation
 
-                if (_isOpen && _spawnonetime == 1)
+                if (_isOpen && Spawnonetime == 1)
                 {
                     Debug.Log("Chest Open");
                     _closeTextRef.gameObject.SetActive(true);
@@ -90,7 +87,8 @@ public class Chest : MonoBehaviour
                         boostpotionInstance.AddForce(0f, 150f, 50f);
                     }
 
-                    _spawnonetime++;
+                    Spawnonetime++;
+
                 }
                 else if (_isOpen == false)
                 {
@@ -108,14 +106,14 @@ public class Chest : MonoBehaviour
             {
                 _isOpen = false;
                 _chestAnimatorRef.SetBool(IsOpen,_isOpen);
-                _spawnonetime = 1;
+                Spawnonetime = 1;
             }
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Chest")) // can chest be opened?
+        if (other.gameObject.CompareTag("ChestB")) // can chest be opened?
         {
             _isInsideTrigger = true;
             // Refrences to the chidren of the chest base object
@@ -149,7 +147,7 @@ public class Chest : MonoBehaviour
     
     void OnTriggerExit (Collider other)
     {
-        if (other.gameObject.CompareTag("Chest")) //close chest
+        if (other.gameObject.CompareTag("ChestB")) //close chest
         {
             _isInsideTrigger = false;
             _closeTextRef.gameObject.SetActive(false);
