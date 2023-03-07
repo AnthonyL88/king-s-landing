@@ -18,7 +18,7 @@ public class Quest : MonoBehaviour
         Completed = Goals.All(g => g.Completed);
     }
 
-    void GiveReward()
+    public void GiveReward()
     {
         // spawn loot like i did for the chest
         Debug.Log("here is your reward!");

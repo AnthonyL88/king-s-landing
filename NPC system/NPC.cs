@@ -29,11 +29,13 @@ public class NPC : MonoBehaviour
     {
         if (_isInsideTrigger)
         {
+            
             name = "Ragnar";
             dialogue = new string[3];
             dialogue[0] = "Welcome heroe! The enemie has taken all the courts of the castle!";
             dialogue[1] = "We need your help!";
             dialogue[2] = "Good luck, don't die ;)";
+         
             DialogueSystem.Instance.AddNewDialogue(dialogue,name);
             Debug.Log("Interacting with NPC.");
         }
