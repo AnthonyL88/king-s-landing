@@ -29,6 +29,9 @@ public class KillGoal : Goal
         {
             CurrentAmount++;
             Evaluate();
+            Debug.Log("fetet 3a enemy died");
         }
+
+        
     }
 }

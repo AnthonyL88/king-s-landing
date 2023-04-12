@@ -5,15 +5,41 @@ using UnityEngine;
 public class Rollo : MonoBehaviour
 {
     public string[] dialogue;
-    public string name;
+    public string name = "Rollo";
     private bool _isInsideTrigger = false;
+    public bool AssignedQuest { get; set; }
+    public bool IsCompleted { get; set; }
 
+    [SerializeField]
+    private GameObject _quests;
+
+    [SerializeField]
+    private string _questType;
+    public Quest Quest { get; set; }
+    
+    public GameObject RewardSpawner;
+    public Rigidbody RewardRef;
+    private Transform Spawn;
+    
     void OnTriggerEnter(Collider other)
     {
+        Spawn = RewardSpawner.transform.Find("RolloSpawner");
         if (other.gameObject.CompareTag("Rollo"))
         {
             _isInsideTrigger = true;
-            Interact();
+            if (!AssignedQuest && !IsCompleted)
+            {
+                AssignQuest();
+                Debug.Log("quest asseigned");
+            }
+            else if (AssignedQuest && !IsCompleted)
+            {
+                CheckQuest();
+            }
+            else
+            {
+                DialogueSystem.Instance.AddNewDialogue(new string[] { "Hoho you got this hero!" }, "Rollo");
+            }
         }
     }
 
@@ -24,18 +50,34 @@ public class Rollo : MonoBehaviour
             _isInsideTrigger = false;
         }
     }
-
-    public virtual void Interact()
+    
+    void AssignQuest()
     {
-        if (_isInsideTrigger)
+        AssignedQuest = true;
+        Quest = (Quest)_quests.AddComponent(System.Type.GetType(_questType));
+        string[] questdialogue = new string[2];
+        questdialogue[0] = "Let's see if you are the Ultimate Slayer";
+        questdialogue[1] = "Your quest is to kill 3 gollems";
+        DialogueSystem.Instance.AddNewDialogue(questdialogue, name);
+        Debug.Log("quest is Asseigned");
+    }
+
+    void CheckQuest()
+    {
+        if (Quest.Completed)
         {
-            name = "Rollo";
-            dialogue = new string[3];
-            dialogue[0] = "I knew you'll come to save us";
-            dialogue[1] = "Be careful";
-            dialogue[2] = "Your mission is to kill 5 skeletons";
-            DialogueSystem.Instance.AddNewDialogue(dialogue, name);
-            Debug.Log("Interacting with NPC.");
+            Rigidbody reward;
+            reward = Instantiate(RewardRef, Spawn.position, Spawn.rotation);
+            reward.AddForce(-50f, 150f, 0f);
+            Quest.GiveReward();
+            IsCompleted = true;
+            AssignedQuest = false;
+            DialogueSystem.Instance.AddNewDialogue(new string[] {"Well done!", "Here's your reward."}, "Rollo");
+        }
+        else
+        {
+            DialogueSystem.Instance.AddNewDialogue(new string[] { "You still haven't completed the quest", "I believe in you", "You can do it!" }, "Rollo");
         }
     }
+    
 }

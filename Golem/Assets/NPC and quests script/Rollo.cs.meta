@@ -3,7 +3,10 @@ guid: 1fc76c974e5139746a02b7afa27df3bc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _quests: {instanceID: 0}
+  - RewardSpawner: {instanceID: 0}
+  - RewardRef: {fileID: -4602927797560920527, guid: 3fdb2051a08a0f75680231ee867aa55a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

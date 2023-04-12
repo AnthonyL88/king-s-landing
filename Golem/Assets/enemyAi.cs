@@ -82,7 +82,7 @@ public class enemyAi : MonoBehaviour
         {
             animations.Play("hit");
             Target.GetComponent<PlayerInventory>().ApplyDamage(TheDammage);
-            Debug.Log("L'ennemi a envoyé " + TheDammage + " points de dégâts");
+            Debug.Log("L'ennemi a envoyï¿½ " + TheDammage + " points de dï¿½gï¿½ts");
             attackTime = Time.time + attackRepeatTime;
         }
     }
@@ -98,7 +98,7 @@ public class enemyAi : MonoBehaviour
         if (!isDead)
         {
             enemyHealth = enemyHealth - TheDammage;
-            print(gameObject.name + "a subit " + TheDammage + " points de dégâts.");
+            print(gameObject.name + "a subit " + TheDammage + " points de dï¿½gï¿½ts.");
 
             if (enemyHealth <= 0)
             {
@@ -116,5 +116,6 @@ public class enemyAi : MonoBehaviour
         Rigidbody reward;
         reward = Instantiate(RewardRef, Spawn.position, Spawn.rotation);
         reward.AddForce(0f, 150f, 0f);
+        CombatEnemy.EnemyDied(this);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestGiver : Rollo
 {
+    /*
     public bool AssignedQuest { get; set; }
     public bool IsCompleted { get; set; }
 
@@ -19,6 +20,7 @@ public class QuestGiver : Rollo
         {
             base.Interact();
             AssignQuest();
+            Debug.Log("quest asseigned");
         }
         else if (AssignedQuest && !IsCompleted)
         {
@@ -34,12 +36,15 @@ public class QuestGiver : Rollo
     {
         AssignedQuest = true;
         Quest = (Quest)_quests.AddComponent(System.Type.GetType(_questType));
-        Debug.Log("quest is Assigned");
+        string[] i = new string[2];
+        i[0] = "fg";
+        i[1] = "re";
+        DialogueSystem.Instance.AddNewDialogue(i, name);
+        Debug.Log("quest is Asseigned");
     }
 
     void CheckQuest()
     {
-        /*
         if (Quest.Completed)
         {
             Quest.GiveReward();
@@ -49,8 +54,10 @@ public class QuestGiver : Rollo
         }
         else
         {
-        */
-        DialogueSystem.Instance.AddNewDialogue(new string[] { "You still haven't completed the quest", "I believe in you", "You can do it!" }, "Rollo");
-        //}
+            DialogueSystem.Instance.AddNewDialogue(new string[] { "You still haven't completed the quest", "I believe in you", "You can do it!" }, "Rollo");
+        }
     }
+    */
 }
+
+

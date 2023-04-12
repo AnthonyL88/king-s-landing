@@ -19,13 +19,14 @@ public class Goal
     {
         if (CurrentAmount >= RequiredAmount)
         {
+            Debug.Log($"C = {CurrentAmount}, R = {RequiredAmount}");
             Complete();
         }
     }
     public void Complete() // changes completed to true if the quest is done 
     {
-        Quest.CheckGoals();
         Completed = true;
+        Quest.CheckGoals();
         Debug.Log("Goal marked as completed.");
     }
 }
