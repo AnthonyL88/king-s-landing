@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4c29ddb3cf21d4e9b0596a8ba26af7, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  itemList:
+  - itemName: 
+    itemID: 0
+    itemDesc: 'If you drink this nice bottle you will get some health back.
+
+
+      +
+      20 Health'
+    itemIcon: {fileID: 0}
+    itemModel: {fileID: 0}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 0
+    maxStack: 0
+    indexItemInList: 999
+    rarity: 0
+    itemAttributes: []
+  - itemName: "\xE9p\xE9e en fer"
+    itemID: 1
+    itemDesc: "une \xE9p\xE9e "
+    itemIcon: {fileID: 21300000, guid: 17b0b3985c72a104ba7c75f52217538e, type: 3}
+    itemModel: {fileID: 6627940709772436372, guid: 9311719ce8065e74ca22f696bf64a89b, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 10
+  - itemName: casque en fer
+    itemID: 2
+    itemDesc: un casque de base
+    itemIcon: {fileID: 21300000, guid: 98f5e61dc86e9814d8c8d9e8e54ac417, type: 3}
+    itemModel: {fileID: 7457827496916365580, guid: c541da6f88f0b2546828479edad9d225, type: 3}
+    itemValue: 1
+    itemType: 4
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Armor
+      attributeValue: 80
+  - itemName: Potion de vie
+    itemID: 3
+    itemDesc: Vous rend 10 PV
+    itemIcon: {fileID: 21300000, guid: d7f4bb449f433e44d8a58fdd46e202ad, type: 3}
+    itemModel: {fileID: 6483360831165891232, guid: bc62d7809fcedb1cea17cbc3ef99affd, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Health
+      attributeValue: 10
