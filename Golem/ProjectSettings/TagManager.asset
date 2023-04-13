@@ -28,6 +28,7 @@ TagManager:
   - CommunChest
   - Pickup
   - Enemy
+  - Floki
   layers:
   - Default
   - TransparentFX
