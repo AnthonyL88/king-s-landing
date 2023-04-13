@@ -57,8 +57,12 @@ public class Rollo : MonoBehaviour
         Quest = (Quest)_quests.AddComponent(System.Type.GetType(_questType));
         string[] questdialogue = new string[2];
         questdialogue[0] = "Let's see if you are the Ultimate Slayer";
-        questdialogue[1] = "Your quest is to kill 3 gollems";
+        questdialogue[1] = "Your quest is to kill 3 golems";
         DialogueSystem.Instance.AddNewDialogue(questdialogue, name);
+        string questText = "Golems kill count: ";
+        string queststagtext = "Rollo's Quest";
+        string amount = "3";
+        QuestSystem.Instance.AddNewQuest(questText,queststagtext, amount);
         Debug.Log("quest is Asseigned");
     }
 
@@ -68,10 +72,11 @@ public class Rollo : MonoBehaviour
         {
             Rigidbody reward;
             reward = Instantiate(RewardRef, Spawn.position, Spawn.rotation);
-            reward.AddForce(-50f, 150f, 0f);
+            reward.AddForce(0f, 150f, -50f);
             Quest.GiveReward();
             IsCompleted = true;
             AssignedQuest = false;
+            QuestSystem.CheckQuest = true;
             DialogueSystem.Instance.AddNewDialogue(new string[] {"Well done!", "Here's your reward."}, "Rollo");
         }
         else

@@ -98,7 +98,7 @@ public class enemyAi : MonoBehaviour
         if (!isDead)
         {
             enemyHealth = enemyHealth - TheDammage;
-            print(gameObject.name + "a subit " + TheDammage + " points de d�g�ts.");
+            print(gameObject.name + "a subit " + TheDammage + " points de degats.");
 
             if (enemyHealth <= 0)
             {

@@ -28,6 +28,7 @@ public class KillGoal : Goal
         if (enemy.ID == EnemyID)
         {
             CurrentAmount++;
+            QuestSystem.changetext = $"{Goal.CurrentAmount}/{Goal.RequiredAmount}";
             Evaluate();
             Debug.Log("fetet 3a enemy died");
         }

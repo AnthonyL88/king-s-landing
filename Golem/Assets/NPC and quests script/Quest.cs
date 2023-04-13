@@ -15,6 +15,7 @@ public class Quest : MonoBehaviour
     public bool Completed { get; set; }
     
     
+    
     public void CheckGoals()
     {
         Completed = Goals.All(g => g.Completed);
