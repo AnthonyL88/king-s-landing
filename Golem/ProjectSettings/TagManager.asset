@@ -30,6 +30,7 @@ TagManager:
   - Enemy
   - Floki
   - Coin
+  - Bjorn
   layers:
   - Default
   - TransparentFX

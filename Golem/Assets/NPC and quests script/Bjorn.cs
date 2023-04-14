@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rollo : MonoBehaviour
+public class Bjorn : MonoBehaviour
 {
     public string[] dialogue;
-    public string name = "Rollo";
+    public string name = "Bjorn";
     private bool _isInsideTrigger = false;
     public bool AssignedQuest { get; set; }
     public bool IsCompleted { get; set; }
@@ -19,21 +19,26 @@ public class Rollo : MonoBehaviour
     
     public GameObject RewardSpawner;
     public Rigidbody RewardRef;
+    public Rigidbody Reward2Ref;
     private Transform Spawn;
+    private Transform Spawn2;
     
     void OnTriggerEnter(Collider other)
     {
-        Spawn = RewardSpawner.transform.Find("RolloSpawner");
-        if (other.gameObject.CompareTag("Rollo"))
+        Spawn = RewardSpawner.transform.Find("BjornSpawner");
+        Spawn2 = RewardSpawner.transform.Find("BjornSpawner2");
+
+        if (other.gameObject.CompareTag("Bjorn"))
         {
             _isInsideTrigger = true;
             if (QuestSystem.TalkedToNCP && !AssignedQuest && !IsCompleted)
             {
-                DialogueSystem.Instance.AddNewDialogue(new string[] {"You should finish your quest first"}, "Rollo");
+                DialogueSystem.Instance.AddNewDialogue(new string[] {"You should finish your quest first"}, "Bjorn");
             }
             else if (!AssignedQuest && !IsCompleted)
             {
                 AssignQuest();
+                CoinsSpawner.SpawnCoins();
                 Debug.Log("quest asseigned");
                 QuestSystem.TalkedToNCP = true;
             }
@@ -43,14 +48,14 @@ public class Rollo : MonoBehaviour
             }
             else
             {
-                DialogueSystem.Instance.AddNewDialogue(new string[] { "Hoho you got this hero!" }, "Rollo");
+                DialogueSystem.Instance.AddNewDialogue(new string[] { "Hoho you got this hero!" }, "Bjorn");
             }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Rollo"))
+        if (other.gameObject.CompareTag("Bjorn"))
         {
             _isInsideTrigger = false;
         }
@@ -60,16 +65,16 @@ public class Rollo : MonoBehaviour
     {
         AssignedQuest = true;
         Quest = (Quest)_quests.AddComponent(System.Type.GetType(_questType));
-        string[] questdialogue = new string[2];
-        questdialogue[0] = "Let's see if you are the Ultimate Slayer";
-        questdialogue[1] = "Your quest is to kill 3 golems";
+        string[] questdialogue = new string[3];
+        questdialogue[0] = "It's time to collect some coin!";
+        questdialogue[1] = "Your quest is to kill collect 5 coins";
+        questdialogue[2] = "I might give something in exchange of them!";
         DialogueSystem.Instance.AddNewDialogue(questdialogue, name);
-        string questText = "Golems kill count: ";
-        string queststagtext = "Rollo's Quest";
-        string amount = "3";
+        string questText = "Coins collected: ";
+        string queststagtext = "Bjorn's Quest";
+        string amount = "5";
         QuestSystem.Instance.AddNewQuest(questText,queststagtext, amount);
         Debug.Log("quest is Asseigned");
-        CoinsSpawner.SpawnCoins();
     }
 
     void CheckQuest()
@@ -79,11 +84,14 @@ public class Rollo : MonoBehaviour
             Rigidbody reward;
             reward = Instantiate(RewardRef, Spawn.position, Spawn.rotation);
             reward.AddForce(0f, 150f, -50f);
+            Rigidbody reward2;
+            reward2 = Instantiate(Reward2Ref, Spawn2.position, Spawn2.rotation);
+            reward2.AddForce(0f, 150f, -50f);
             Quest.GiveReward();
             IsCompleted = true;
             AssignedQuest = false;
             QuestSystem.CheckQuest = true;
-            DialogueSystem.Instance.AddNewDialogue(new string[] {"Well done!", "Here's your reward.", "and you gained 50xp points hehe"}, "Rollo");
+            DialogueSystem.Instance.AddNewDialogue(new string[] {"Well done!", "Here's your reward.", "and you gained 50xp hehe"}, "Bjorn");
             PlayerInventory.currentXP += 50;
             QuestSystem.TalkedToNCP = false;
         }
@@ -92,5 +100,4 @@ public class Rollo : MonoBehaviour
             DialogueSystem.Instance.AddNewDialogue(new string[] { "You still haven't completed the quest", "I believe in you", "You can do it!" }, "Rollo");
         }
     }
-    
 }

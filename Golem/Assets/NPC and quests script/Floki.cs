@@ -27,10 +27,15 @@ public class Floki : MonoBehaviour
         if (other.gameObject.CompareTag("Floki"))
         {
             _isInsideTrigger = true;
-            if (!AssignedQuest && !IsCompleted)
+            if (QuestSystem.TalkedToNCP && !AssignedQuest && !IsCompleted)
+            {
+                DialogueSystem.Instance.AddNewDialogue(new string[] {"You should finish your quest first"}, "Floki");
+            }
+            else if (!AssignedQuest && !IsCompleted)
             {
                 AssignQuest();
                 Debug.Log("quest asseigned");
+                QuestSystem.TalkedToNCP = true;
             }
             else if (AssignedQuest && !IsCompleted)
             {
@@ -38,7 +43,7 @@ public class Floki : MonoBehaviour
             }
             else
             {
-                DialogueSystem.Instance.AddNewDialogue(new string[] { "Hoho you got this hero!" }, "Rollo");
+                DialogueSystem.Instance.AddNewDialogue(new string[] { "Hoho you got this hero!" }, "Floki");
             }
         }
     }
@@ -77,7 +82,9 @@ public class Floki : MonoBehaviour
             IsCompleted = true;
             AssignedQuest = false;
             QuestSystem.CheckQuest = true;
-            DialogueSystem.Instance.AddNewDialogue(new string[] {"Well done!", "Here's your reward."}, "Floki");
+            DialogueSystem.Instance.AddNewDialogue(new string[] {"Well done!", "Here's your reward.", "and you gained 25xp hehe"}, "Floki");
+            PlayerInventory.currentXP += 25;
+            QuestSystem.TalkedToNCP = false;
         }
         else
         {

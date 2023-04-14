@@ -35,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
     Image experienceBar;
     Text playerLevelTxt;
     public int playerLevel = 1;
-    public float currentXP = 0;
+    public static float currentXP = 0;
     public float maxXP = 100;
     public float rateXP;
 
@@ -280,6 +280,11 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("coin");
+            CoinsSpawner.SpawnCoins();
+        }
 
         if (Input.GetKeyDown(KeyCode.N))
         {

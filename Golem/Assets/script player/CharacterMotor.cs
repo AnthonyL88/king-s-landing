@@ -74,7 +74,7 @@ public class CharacterMotor : MonoBehaviour
                 }
 
                 // Si on sprint
-                if (Input.GetKey(inputFront) && Input.GetKey(KeyCode.LeftShift))
+                if (Input.GetKey(inputFront) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Q)))
                 {
                     transform.Translate(0, 0, runSpeed * Time.deltaTime);
                     animations.Play("run");
@@ -96,13 +96,13 @@ public class CharacterMotor : MonoBehaviour
                     }
                 }
 
-                // rotation Ã  gauche
+                // rotation ï¿½  gauche
                 if (Input.GetKey(inputLeft))
                 {
                     transform.Rotate(0, -turnSpeed * Time.deltaTime, 0);
                 }
 
-                // rotation Ã  droite
+                // rotation ï¿½  droite
                 if (Input.GetKey(inputRight))
                 {
                     transform.Rotate(0, turnSpeed * Time.deltaTime, 0);

@@ -36,8 +36,6 @@ public class enemyAi : MonoBehaviour
 
         if (!isDead)
         {
-
-
             Target = GameObject.Find("player").transform;
 
 

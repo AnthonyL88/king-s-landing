@@ -24,6 +24,8 @@ public class QuestSystem : MonoBehaviour
 
     public static string changetext = "";
 
+    public static bool TalkedToNCP;
+
 
     void Awake()
     {
