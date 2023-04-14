@@ -23,6 +23,10 @@ public class Rollo : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+            Debug.Log("zopeufubze)o");
+        if (Input.GetKey(KeyCode.A))
+            Debug.Log("oj");
         Spawn = RewardSpawner.transform.Find("RolloSpawner");
         if (other.gameObject.CompareTag("Rollo"))
         {

@@ -29,6 +29,7 @@ TagManager:
   - Pickup
   - Enemy
   - Floki
+  - Coin
   layers:
   - Default
   - TransparentFX

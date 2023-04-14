@@ -66,5 +66,6 @@ public class QuestSystem : MonoBehaviour
         QuestText.text = QuestLine + changetext;
         QuestTagText.text = QuestTag;
         QuestPanel.SetActive(true);
+        Debug.Log("quest created");
     }
 }
