@@ -10,7 +10,6 @@ namespace Golemall
 
         public static void EnemyDied2(enemyAi enemy)
         {
-            Debug.Log("1");
             if (OnEnemyDeath2 != null)
             {
                 OnEnemyDeath2(enemy);

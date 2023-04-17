@@ -22,8 +22,6 @@ public class GolemSpawer : SpawnGoal
     void EnemyDied2(enemyAi enemy)
     {
         CurrentAmount++;
-        Debug.Log("fetet 3a enemy died2");
-        Debug.Log($"{CurrentAmount} {RequiredAmount}");
         Evaluate();
     }
         
@@ -43,17 +41,10 @@ public class GolemSpawer : SpawnGoal
     
     public static void SpawnGolems()
     {
-        Debug.Log("fetet 3a spawn Golem");
         for (int i = 0; i < 3; i++)
         {
             GameObject c = GameObject.Find("GolemSpawners");
-            if (c is null)
-                Debug.Log("yfgemvkv");
             Transform Golemspawner = c.transform.Find($"GolemSpawner{i}");
-            if (Golemspawner is null)
-                Debug.Log("ma le2a el Golemspawner");
-            if (Golemspawner is null)
-                Debug.Log("rig is null");
             /*
             Rigidbody GolemIns;
             GolemIns = Instantiate(GolemRef, Golemspawner.position, Golemspawner.rotation) as Rigidbody;

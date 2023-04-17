@@ -17,14 +17,12 @@ namespace Golemall
         {
             if (CurrentAmount >= RequiredAmount)
             {
-                Debug.Log($"C = {CurrentAmount}, R = {RequiredAmount}");
                 Complete();
             }
         }
         public void Complete() // changes completed to true if the quest is done 
         {
             GolemSpawer.SpawnGolems();
-            Debug.Log("Goal marked as completed.");
             CurrentAmount = 0;
         }
     }
