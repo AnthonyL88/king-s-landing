@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Golemall;
 using UnityEngine;
 
 public class enemyAi : MonoBehaviour
@@ -115,5 +116,6 @@ public class enemyAi : MonoBehaviour
         reward = Instantiate(RewardRef, Spawn.position, Spawn.rotation);
         reward.AddForce(0f, 150f, 0f);
         CombatEnemy.EnemyDied(this);
+        CombatGolem.EnemyDied2(this);
     }
 }

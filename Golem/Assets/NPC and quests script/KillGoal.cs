@@ -32,7 +32,6 @@ public class KillGoal : Goal
             Evaluate();
             Debug.Log("fetet 3a enemy died");
         }
-
         
     }
 }
