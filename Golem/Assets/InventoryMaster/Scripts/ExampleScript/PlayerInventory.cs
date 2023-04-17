@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour
 
     Image experienceBar;
     Text playerLevelTxt;
-    public int playerLevel = 1;
+    public static int playerLevel = 1;
     public static float currentXP = 0;
     public float maxXP = 100;
     public float rateXP;
