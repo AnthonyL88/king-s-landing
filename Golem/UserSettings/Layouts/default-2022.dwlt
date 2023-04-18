@@ -580,10 +580,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 74f8feff
-      m_LastClickedID: -67468
-      m_ExpandedIDs: f2effeff12f0feffaef0feff78f8fefff0faffff
+      scrollPos: {x: 0, y: 32}
+      m_SelectedIDs: c0e4feff
+      m_LastClickedID: -72512
+      m_ExpandedIDs: f0faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -962,9 +962,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 42.20121, y: 0.7475047, z: 27.805931}
+    m_Target: {x: 91.02289, y: 4.380873, z: 92.718735}
     speed: 2
-    m_Value: {x: 42.20121, y: 0.7475047, z: 27.805931}
+    m_Value: {x: 91.02289, y: 4.380873, z: 92.718735}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1010,13 +1010,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.03220097, y: -0.96774244, z: 0.20187353, w: -0.14946057}
+    m_Target: {x: -0.109902985, y: -0.15591817, z: 0.016388275, w: -0.98183537}
     speed: 2
-    m_Value: {x: -0.0318877, y: -0.9676492, z: 0.20185561, w: -0.14796042}
+    m_Value: {x: -0.10989127, y: -0.15439443, z: 0.016218064, w: -0.981745}
   m_Size:
-    m_Target: 2.6711981
+    m_Target: 4.493454
     speed: 2
-    m_Value: 2.7970662
+    m_Value: 4.7051873
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1087,23 +1087,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/M.E. Castle Creator/Castle_Set_2.0/Prefabs/Detail, Props/Flags, Cloth
+    - Assets/M.E. Castle Creator/Castle_Set_2.0/Prefabs/Lighting, Effects
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/M.E. Castle Creator/Castle_Set_2.0/Prefabs/Detail, Props/Flags, Cloth
+  - Assets/M.E. Castle Creator/Castle_Set_2.0/Prefabs/Lighting, Effects
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/anthonylawandos70/GitHub/king-s-landing/Golem
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 578}
-    m_SelectedIDs: fef80000
-    m_LastClickedID: 63742
-    m_ExpandedIDs: 000000002cf600002ef6000030f6000032f6000034f6000036f6000038f600003af600003cf600003ef6000040f6000042f6000044f6000046f6000048f600004af600004cf600004ef6000050f6000052f6000054f6000056f6000058f600005af600005cf600005ef6000060f6000000ca9a3b
+    m_SelectedIDs: 88f90000
+    m_LastClickedID: 63880
+    m_ExpandedIDs: 00000000b6f60000b8f60000baf60000bcf60000bef60000c0f60000c2f60000c4f60000c6f60000c8f60000caf60000ccf60000cef60000d0f60000d2f60000d4f60000d6f60000d8f60000daf60000dcf60000def60000e0f60000e2f60000e4f60000e6f60000e8f60000eaf6000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1131,7 +1131,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002cf600002ef6000030f6000032f6000034f6000036f6000038f600003af600003cf600003ef6000040f6000042f6000044f6000046f6000048f600004af600004cf600004ef6000050f6000052f6000054f6000056f6000058f600005af600005cf600005ef6000060f60000
+    m_ExpandedIDs: 00000000b6f60000b8f60000baf60000bcf60000bef60000c0f60000c2f60000c4f60000c6f60000c8f60000caf60000ccf60000cef60000d0f60000d2f60000d4f60000d6f60000d8f60000daf60000dcf60000def60000e0f60000e2f60000e4f60000e6f60000e8f60000eaf60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000fe5900006efc0000805101007c6200001ec1000074f50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
