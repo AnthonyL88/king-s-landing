@@ -5,7 +5,7 @@ namespace Golemall
     public class SpawnGoal : MonoBehaviour
     {
         public static int CurrentAmount = 0;
-        public static int RequiredAmount = 3;
+        public static int RequiredAmount = 7;
         
         
         public virtual void Init()

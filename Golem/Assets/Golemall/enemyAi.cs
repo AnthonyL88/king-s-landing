@@ -120,5 +120,6 @@ public class enemyAi : MonoBehaviour
         reward.AddForce(0f, 150f, 0f);
         CombatEnemy.EnemyDied(this);
         CombatGolem.EnemyDied2(this);
+        PlayerInventory.currentXP += 20;
     }
 }

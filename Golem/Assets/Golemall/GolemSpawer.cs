@@ -41,7 +41,7 @@ public class GolemSpawer : SpawnGoal
     
     public static void SpawnGolems()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 8; i++)
         {
             GameObject c = GameObject.Find("GolemSpawners");
             Transform Golemspawner = c.transform.Find($"GolemSpawner{i}");

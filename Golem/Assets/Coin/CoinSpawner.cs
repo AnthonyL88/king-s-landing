@@ -23,7 +23,7 @@ public class CoinsSpawner : MonoBehaviour
     
     public static void SpawnCoins()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 11; i++)
         {
             GameObject c = GameObject.Find("CoinSpawners");
             if (c is null)

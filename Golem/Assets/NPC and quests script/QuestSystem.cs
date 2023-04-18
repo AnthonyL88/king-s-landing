@@ -57,6 +57,8 @@ public class QuestSystem : MonoBehaviour
 
     public void AddNewQuest(string line, string questtag, string change)
     {
+        CheckQuest = false;
+        Goal.CurrentAmount = 0;
         QuestLine = line;
         QuestTag = questtag;
         changetext = $"{Goal.CurrentAmount}" + "/" + change;
