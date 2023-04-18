@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Golemall;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemyAi : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class enemyAi : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animation animations;
     public float enemyHealth;
+    public Slider healthbar;
     private bool isDead = false;
     public int ID { set; get; } = 0;
 
@@ -34,6 +36,7 @@ public class enemyAi : MonoBehaviour
 
     void Update()
     {
+        healthbar.value = enemyHealth;
 
         if (!isDead)
         {
