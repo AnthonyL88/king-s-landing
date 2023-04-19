@@ -162,10 +162,19 @@ public class CharacterMotor : MonoBehaviour
                 {
                     Debug.DrawLine(rayhit.transform.position, hit.point, Color.red);
 
-                    if(hit.transform.tag == "Enemy")
+                     if(hit.transform.tag == "Enemy")
                      {
-                      hit.transform.GetComponent<enemyAi>().ApplyDammage(playerInv.currentDamage);
+                          hit.transform.GetComponent<enemyAi>().ApplyDammage(playerInv.currentDamage);
                      }
+                     if(hit.transform.tag == "Boss1")
+                     {
+                         hit.transform.GetComponent<Boss1>().ApplyDammage(playerInv.currentDamage);
+                     }
+                     if(hit.transform.tag == "Skeleton")
+                     {
+                         hit.transform.GetComponent<Skeleton>().ApplyDammage(playerInv.currentDamage);
+                     }
+                     
                 }
                 isAttacking = true;
             }

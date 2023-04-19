@@ -35,6 +35,8 @@ TagManager:
   - MythicChest
   - ChestB
   - Ubbe
+  - Boss1
+  - Skeleton
   layers:
   - Default
   - TransparentFX

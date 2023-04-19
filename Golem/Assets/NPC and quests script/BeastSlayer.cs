@@ -14,7 +14,7 @@ public class BeastSlayer : Quest
         ItemReward = lengendarymaceRef;
         ExperienceReward = 100;
 
-        Goals.Add(new KillGoal(this,0, "Kill 1 enemie", false,0, 1));
+        Goals.Add(new KillGoal(this,1, "Kill 1 enemie", false,0, 2));
         //Goals.Add(new KillGoal(this,1, "Kill 3 skeletons",false, 0, 3));
         
         Goals.ForEach(g => g.Init());

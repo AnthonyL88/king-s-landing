@@ -21,6 +21,7 @@ public class KillGoal : Goal
     {
         base.Init();
         CombatEnemy.OnEnemyDeath += EnemyDied;
+        CombatEnemy.OnSkeletonDeath += SkeletonDied;
     }
 
     void EnemyDied(enemyAi enemy)
@@ -32,6 +33,16 @@ public class KillGoal : Goal
             Evaluate();
             Debug.Log("fetet 3a enemy died");
         }
-        
+    }
+    
+    void SkeletonDied(Skeleton enemy)
+    {
+        if (enemy.ID == EnemyID)
+        {
+            CurrentAmount++;
+            QuestSystem.changetext = $"{Goal.CurrentAmount}/{Goal.RequiredAmount}";
+            Evaluate();
+            Debug.Log("fetet 3a skeleton died");
+        }
     }
 }

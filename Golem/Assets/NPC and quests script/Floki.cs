@@ -62,11 +62,11 @@ public class Floki : MonoBehaviour
         Quest = (Quest)_quests.AddComponent(System.Type.GetType(_questType));
         string[] questdialogue = new string[2];
         questdialogue[0] = "Let's see if you are the Beast Slayer";
-        questdialogue[1] = "Your quest is to kill 1 golems";
+        questdialogue[1] = "Your quest is to kill 2 skeletons";
         DialogueSystem.Instance.AddNewDialogue(questdialogue, name);
-        string questText = "Golems kill count: ";
+        string questText = "Skeletons kill count: ";
         string queststagtext = "Floki's Quest";
-        string amount = "1";
+        string amount = "2";
         QuestSystem.Instance.AddNewQuest(questText,queststagtext, amount);
         Debug.Log("quest is Asseigned");
     }
