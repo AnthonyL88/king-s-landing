@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterMotor : MonoBehaviour
 {
@@ -35,6 +36,27 @@ public class CharacterMotor : MonoBehaviour
 
     // Le personnage est-il mort ?
     public bool isDead = false;
+
+    [Header("Paramètre des sorts")]
+    public GameObject rayspell;
+    private GameObject SpellHolderImg;
+    public int currentSpell = 1;
+    public int totalSpell;
+
+    [Header("Paramètre du sort de foudre")]
+    public float LightningSpellCost;
+    public GameObject LightningSpellGO;
+    public float LightningSpellSpeed;
+    public int LightningSpellID;
+    public Sprite LightningSpellImage;
+
+    [Header("Paramètre du sort de soin")]
+    public float HealSpellCost;
+    public float HealSpellAmount;
+    public GameObject HealSpellGO;
+    public int HealSpellID;
+    public Sprite HealSpellImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +65,8 @@ public class CharacterMotor : MonoBehaviour
         layer = LayerMask.GetMask("Default");
         rayhit = GameObject.Find("RayHit");
         playerInv = gameObject.GetComponent<PlayerInventory>();
-        
+        SpellHolderImg = GameObject.Find("SpellHolderImg");
+
     }
 
     bool IsGrounded()
@@ -71,7 +94,12 @@ public class CharacterMotor : MonoBehaviour
                     {
                         Attack();
                     }
-                }
+
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                      Spell();
+                    }
+            }
 
                 // Si on sprint
                 if (Input.GetKey(inputFront) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Q)))
@@ -94,7 +122,12 @@ public class CharacterMotor : MonoBehaviour
                     {
                         Attack();
                     }
-                }
+
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                       Spell();
+                    }
+            }
 
                 // rotation �  gauche
                 if (Input.GetKey(inputLeft))
@@ -120,7 +153,12 @@ public class CharacterMotor : MonoBehaviour
                     {
                         Attack();
                     }
-                }
+
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                       Spell();
+                    }
+            }
 
                 // Si on saute
                 if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -145,7 +183,35 @@ public class CharacterMotor : MonoBehaviour
                 currentCooldown = attackCooldown;
                 isAttacking = false;
             }
-        
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            if (currentSpell <= totalSpell && currentSpell != 1)
+            {
+                currentSpell -= 1;
+            }
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            if (currentSpell >= 0 && currentSpell != totalSpell)
+            {
+                currentSpell += 1;
+            }
+        }
+
+        if (currentSpell == LightningSpellID)
+        {
+            SpellHolderImg.GetComponent<Image>().sprite = LightningSpellImage;
+
+        }
+
+        if (currentSpell == HealSpellID)
+        {
+            SpellHolderImg.GetComponent<Image>().sprite = HealSpellImage;
+
+        }
+
 
     }
 
@@ -180,6 +246,26 @@ public class CharacterMotor : MonoBehaviour
             }
         
 
+    }
+
+    public void Spell()
+    {
+        if (currentSpell == LightningSpellID && !isAttacking && playerInv.currentMana >= LightningSpellCost)
+        {
+            animations.Play("attack");
+            GameObject TheSpell = Instantiate(LightningSpellGO, rayspell.transform.position, transform.rotation);
+            TheSpell.GetComponent<Rigidbody>().AddForce(transform.forward * LightningSpellSpeed);
+            playerInv.currentMana -= LightningSpellCost;
+            isAttacking = true;
+        }
+
+        if (currentSpell == HealSpellID && !isAttacking && playerInv.currentMana >= HealSpellCost && playerInv.currentHealth < playerInv.maxHealth)
+        {
+            GameObject TheSpell = Instantiate(HealSpellGO, rayspell.transform.position, transform.rotation);
+            playerInv.currentMana -= HealSpellCost;
+            playerInv.currentHealth += HealSpellAmount;
+            isAttacking = true;
+        }
     }
 }
 

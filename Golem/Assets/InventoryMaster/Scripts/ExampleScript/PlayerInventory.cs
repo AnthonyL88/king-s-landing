@@ -20,8 +20,8 @@ public class PlayerInventory : MonoBehaviour
     Image hpImage;
     Image manaImage;
 
-    float maxHealth = 100;
-    float maxMana = 100;
+    public float maxHealth = 100;
+    public float maxMana = 100;
     float maxDamage = 0;
     float maxArmor = 0;
 
@@ -36,11 +36,12 @@ public class PlayerInventory : MonoBehaviour
     Text playerLevelTxt;
     public static int playerLevel = 1;
     public static float currentXP = 0;
-    public float maxXP = 100;
+    public static float maxXP = 100;
     public float rateXP;
 
     public CharacterMotor characterMotor;
     public Animation playerAnimations;
+    public PlayerSkills playerSkills;
 
     public void OnEnable()
     {
@@ -173,6 +174,8 @@ public class PlayerInventory : MonoBehaviour
         characterMotor = gameObject.GetComponent<CharacterMotor>();
         playerAnimations = gameObject.GetComponent<Animation>();
 
+        playerSkills =gameObject.GetComponent<PlayerSkills>();
+
         if (inputManagerDatabase == null)
             inputManagerDatabase = (InputManager)Resources.Load("InputManager");
 
@@ -280,6 +283,12 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("coin");
@@ -295,6 +304,7 @@ public class PlayerInventory : MonoBehaviour
         {
             float reste = currentXP - maxXP;
             playerLevel += 1;
+            playerSkills.AvailablePoints += 1;
             playerLevelTxt.text = "Player Level : " + playerLevel;
             currentXP = 0 + reste;
             maxXP = maxXP * rateXP;

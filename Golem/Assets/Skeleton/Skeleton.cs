@@ -18,7 +18,8 @@ public class Skeleton : MonoBehaviour
     
 
     private UnityEngine.AI.NavMeshAgent agent;
-    private Animation animations;
+    private Animator animations;
+    private Animation anim;
     public float enemyHealth;
     public Slider healthbar;
     protected bool isDead = false;
@@ -41,10 +42,10 @@ public class Skeleton : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        animations = gameObject.GetComponent<Animation>();
+        animations = gameObject.GetComponent<Animator>();
         attackTime = Time.time;
-        
         transform.position = waypoints[waypointIndex].transform.position;
+        animations.SetBool("walk", true);
     }
 
 
@@ -64,6 +65,7 @@ public class Skeleton : MonoBehaviour
             
             if (Distance > chaseRange)
             {
+                animations.SetBool("attack", false);
                 Move();
             }
             
@@ -71,6 +73,7 @@ public class Skeleton : MonoBehaviour
 
             if (Distance < chaseRange && Distance > attackRange)
             {
+                animations.SetBool("attack", false);
                 chase();
             }
 
@@ -83,13 +86,14 @@ public class Skeleton : MonoBehaviour
             
 
         }
+       
         
     }
 
 
     protected void chase()
     {
-        //animations.Play("walk");
+        animations.SetBool("walk", true);
         agent.destination = Target.position;
     }
 
@@ -102,7 +106,7 @@ public class Skeleton : MonoBehaviour
 
         if (Time.time > attackTime)
         {
-            //animations.Play("hit");
+            animations.SetBool("attack", true);
             Target.GetComponent<PlayerInventory>().ApplyDamage(TheDammage);
             Debug.Log("L'ennemi a envoy� " + TheDammage + " points de d�g�ts");
             attackTime = Time.time + attackRepeatTime;
@@ -112,7 +116,7 @@ public class Skeleton : MonoBehaviour
 
     void idle()
     {
-        //animations.Play("idle");
+        animations.Play("Idle");
     }
     
     protected void Move()
@@ -167,7 +171,8 @@ public class Skeleton : MonoBehaviour
     public void Dead()
     {
         isDead = true;
-        //animations.Play("die");
+        animations.SetBool("dead", true);
+        animations.SetBool("walk", false);
         Destroy(transform.gameObject, 5);
         Spawn = RewardSpawner.transform.Find("Skeleton");
         Rigidbody reward;

@@ -76,7 +76,7 @@ public class Boss1 : MonoBehaviour
 
     void chase()
     {
-        //animations.Play("Monster_anim|Walk");
+        animations.Play("Monster_anim_Walk");
         agent.destination = Target.position;
     }
 
@@ -89,7 +89,7 @@ public class Boss1 : MonoBehaviour
 
         if (Time.time > attackTime)
         {
-            //animations.Play("Monster_anim|Atack");
+            animations.Play("Monster_anim_Atack");
             Target.GetComponent<PlayerInventory>().ApplyDamage(TheDammage);
             Debug.Log("L'ennemi a envoy� " + TheDammage + " points de d�g�ts");
             attackTime = Time.time + attackRepeatTime;
@@ -99,7 +99,7 @@ public class Boss1 : MonoBehaviour
 
     void idle()
     {
-        //animations.Play("Monster_anim|Idle_1");
+        animations.Play("Monster_anim_Idle_1");
     }
 
     public void ApplyDammage(float TheDammage)
@@ -119,7 +119,7 @@ public class Boss1 : MonoBehaviour
     public void Dead()
     {
         isDead = true;
-        //animations.Play("Monster_anim|Get_hit");
+        animations.Play("Monster_anim_Get_hit");
         Destroy(transform.gameObject, 5);
         Spawn = RewardSpawner.transform.Find("Orc");
         Rigidbody reward;

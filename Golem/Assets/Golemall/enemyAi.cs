@@ -16,6 +16,7 @@ public class enemyAi : MonoBehaviour
     public GameObject RewardSpawner;
     public Rigidbody RewardRef;
     private Transform Spawn;
+    private PlayerInventory playerinv;
     
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -30,6 +31,7 @@ public class enemyAi : MonoBehaviour
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         animations = gameObject.GetComponent<Animation>();
         attackTime = Time.time;
+        playerinv = gameObject.GetComponent<PlayerInventory>();
     }
 
 
@@ -82,10 +84,12 @@ public class enemyAi : MonoBehaviour
 
         if (Time.time > attackTime)
         {
-            animations.Play("hit");
-            Target.GetComponent<PlayerInventory>().ApplyDamage(TheDammage);
-            Debug.Log("L'ennemi a envoy� " + TheDammage + " points de d�g�ts");
-            attackTime = Time.time + attackRepeatTime;
+
+                animations.Play("hit");
+                Target.GetComponent<PlayerInventory>().ApplyDamage(TheDammage);
+                Debug.Log("L'ennemi a envoy� " + TheDammage + " points de d�g�ts");
+                attackTime = Time.time + attackRepeatTime;
+            
         }
     }
 
