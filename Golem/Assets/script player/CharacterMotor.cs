@@ -240,8 +240,12 @@ public class CharacterMotor : MonoBehaviour
                      {
                          hit.transform.GetComponent<Skeleton>().ApplyDammage(playerInv.currentDamage);
                      }
-                     
-                }
+                     if (hit.transform.tag == "Boss2")
+                     {
+                        hit.transform.GetComponent<Boss2>().ApplyDammage(playerInv.currentDamage);
+                     }
+
+            }
                 isAttacking = true;
             }
         

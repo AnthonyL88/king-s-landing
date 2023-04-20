@@ -37,6 +37,7 @@ TagManager:
   - Ubbe
   - Boss1
   - Skeleton
+  - Boss2
   layers:
   - Default
   - TransparentFX

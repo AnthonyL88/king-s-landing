@@ -35,68 +35,71 @@ public class Chest : MonoBehaviour
         {
             if (Input.GetButtonDown("E"))
             {
-                _isOpen = true; // is chest open or not
-                _chestAnimatorRef.SetBool(IsOpen, _isOpen); // open or close the chest with animation
-
-                if (_isOpen && _spawnonetime == 1)
+                if (checkkey.list2[2] == true)
                 {
-                    Debug.Log("Chest Open");
-                    _closeTextRef.gameObject.SetActive(true);
-                    _openTextRef.gameObject.SetActive(false);
+                    _isOpen = true; // is chest open or not
+                    _chestAnimatorRef.SetBool(IsOpen, _isOpen); // open or close the chest with animation
 
-                    int weaponprob = Random.Range(1, 4);
-                    if (weaponprob == 1)
+                    if (_isOpen && _spawnonetime == 1)
                     {
-                        // create an axe
-                        Rigidbody axeInstance;
-                        axeInstance = Instantiate(axeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                        axeInstance.AddForce(0f, 150f, 50f);
-                    }
+                        Debug.Log("Chest Open");
+                        _closeTextRef.gameObject.SetActive(true);
+                        _openTextRef.gameObject.SetActive(false);
 
-                    if (weaponprob == 2)
+                        int weaponprob = Random.Range(1, 4);
+                        if (weaponprob == 1)
+                        {
+                            // create an axe
+                            Rigidbody axeInstance;
+                            axeInstance = Instantiate(axeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                            axeInstance.AddForce(0f, 150f, 50f);
+                        }
+
+                        if (weaponprob == 2)
+                        {
+                            Rigidbody bowInstance;
+                            bowInstance = Instantiate(bowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                            bowInstance.AddForce(0f, 150f, 50f);
+                        }
+
+                        if (weaponprob == 3)
+                        {
+                            Rigidbody maceInstance;
+                            maceInstance = Instantiate(maceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
+                            maceInstance.AddForce(0f, 150f, 50f);
+                        }
+
+                        int potionprob = Random.Range(1, 10);
+
+                        if (potionprob is > 2 and < 6)
+                        {
+                            Rigidbody healthpotionInstance;
+                            healthpotionInstance = Instantiate(healthPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
+                            healthpotionInstance.AddForce(0f, 150f, 50f);
+                        }
+
+                        if (potionprob is > 5 and < 8)
+                        {
+                            Rigidbody shieldpotionInstance;
+                            shieldpotionInstance = Instantiate(shieldPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
+                            shieldpotionInstance.AddForce(0f, 150f, 50f);
+                        }
+
+                        if (potionprob is > 8 and < 11)
+                        {
+                            Rigidbody boostpotionInstance;
+                            boostpotionInstance = Instantiate(boostPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
+                            boostpotionInstance.AddForce(0f, 150f, 50f);
+                        }
+
+                        _spawnonetime++;
+                    }
+                    else if (_isOpen == false)
                     {
-                        Rigidbody bowInstance;
-                        bowInstance = Instantiate(bowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                        bowInstance.AddForce(0f, 150f, 50f);
+                        Debug.Log("Closed Chest");
+                        _closeTextRef.gameObject.SetActive(false);
+                        _openTextRef.gameObject.SetActive(true);
                     }
-
-                    if (weaponprob == 3)
-                    {
-                        Rigidbody maceInstance;
-                        maceInstance = Instantiate(maceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                        maceInstance.AddForce(0f, 150f, 50f);
-                    }
-
-                    int potionprob = Random.Range(1, 10);
-
-                    if (potionprob is > 2 and < 6)
-                    {
-                        Rigidbody healthpotionInstance;
-                        healthpotionInstance = Instantiate(healthPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                        healthpotionInstance.AddForce(0f, 150f, 50f);
-                    }
-
-                    if (potionprob is > 5 and < 8)
-                    {
-                        Rigidbody shieldpotionInstance;
-                        shieldpotionInstance = Instantiate(shieldPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                        shieldpotionInstance.AddForce(0f, 150f, 50f);
-                    }
-
-                    if (potionprob is > 8 and < 11)
-                    {
-                        Rigidbody boostpotionInstance;
-                        boostpotionInstance = Instantiate(boostPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                        boostpotionInstance.AddForce(0f, 150f, 50f);
-                    }
-
-                    _spawnonetime++;
-                }
-                else if (_isOpen == false)
-                {
-                    Debug.Log("Closed Chest");
-                    _closeTextRef.gameObject.SetActive(false);
-                    _openTextRef.gameObject.SetActive(true);
                 }
 
             }

@@ -37,10 +37,17 @@ public class SpellCollision : MonoBehaviour
 
         }
 
+        if (col.gameObject.tag == "Boss2")
+        {
+            col.gameObject.GetComponent<Boss2>().ApplyDammage(SpellDammage);
+
+        }
+
         if (col.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }
+
         
     }
 }

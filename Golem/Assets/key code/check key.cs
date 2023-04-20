@@ -7,7 +7,17 @@ public class checkkey : MonoBehaviour
     [SerializeField]
     private int KeyID;
     [SerializeField]
-    public List<bool> Keylist = new List<bool>();
+    public List<bool> Keylist;
+    public static List<bool> list2;
+
+    private void Start()
+    {
+        Keylist.Add(false);
+        Keylist.Add(false);
+        Keylist.Add(false);
+        Keylist.Add(false);
+        list2 = Keylist;
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,51 +38,28 @@ public class checkkey : MonoBehaviour
 
         if (KeyID == 4 && transform.childCount > 0)
         {
-            for (int i = 0; i < Keylist.Count; i++)
-            {
-                if (i == 0)
-                {
-                    Keylist[i] = true;
-                }
-
-            }
+            Keylist[0] = true;
+            list2 = Keylist;
         }
 
         if (KeyID == 14 && transform.childCount > 0)
         {
-            for (int i = 1; i < Keylist.Count; i++)
-            {
-                if (i == 1)
-                {
-                    Keylist[i] = true;
-                }
-
-            }
+            Keylist[1] = true;
+            list2 = Keylist;
         }
 
         if (KeyID == 15 && transform.childCount > 0)
         {
-            for (int i = 2; i < Keylist.Count; i++)
-            {
-                if (i == 2)
-                {
-                    Keylist[i] = true;
-                }
-
-            }
+            Keylist[2] = true;
+            list2 = Keylist;
         }
 
         if (KeyID == 16 && transform.childCount > 0)
         {
-            for (int i = 3; i < Keylist.Count; i++)
-            {
-                if (i == 3)
-                {
-                    Keylist[i] = true;
-                }
-
-            }
+            Keylist[3] = true;
+            list2 = Keylist;
         }
+        
 
     }
 }
