@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: fb0aa272131470a45bf870c4a9f9d9f5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rolloRewardRef: {fileID: -4602927797560920527, guid: 3fdb2051a08a0f75680231ee867aa55a, type: 3}
+  - RolloRewardSpawner: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4c29ddb3cf21d4e9b0596a8ba26af7, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  itemList:
+  - itemName: 
+    itemID: 0
+    itemDesc: 'If you drink this nice bottle you will get some health back.
+
+
+      +
+      20 Health'
+    itemIcon: {fileID: 0}
+    itemModel: {fileID: 0}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 0
+    maxStack: 0
+    indexItemInList: 999
+    rarity: 0
+    itemAttributes: []
+  - itemName: "\xE9p\xE9e en fer"
+    itemID: 1
+    itemDesc: "une \xE9p\xE9e "
+    itemIcon: {fileID: 21300000, guid: 17b0b3985c72a104ba7c75f52217538e, type: 3}
+    itemModel: {fileID: 6627940709772436372, guid: 9311719ce8065e74ca22f696bf64a89b, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 10
+  - itemName: casque en fer
+    itemID: 2
+    itemDesc: un casque de base
+    itemIcon: {fileID: 21300000, guid: 98f5e61dc86e9814d8c8d9e8e54ac417, type: 3}
+    itemModel: {fileID: 7457827496916365580, guid: c541da6f88f0b2546828479edad9d225, type: 3}
+    itemValue: 1
+    itemType: 4
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Armor
+      attributeValue: 80
+  - itemName: Potion de vie
+    itemID: 3
+    itemDesc: Vous rend 10 PV
+    itemIcon: {fileID: 21300000, guid: d7f4bb449f433e44d8a58fdd46e202ad, type: 3}
+    itemModel: {fileID: 6483360831165891232, guid: bc62d7809fcedb1cea17cbc3ef99affd, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Health
+      attributeValue: 10
+  - itemName: commun key
+    itemID: 4
+    itemDesc: opens commun chests
+    itemIcon: {fileID: 21300000, guid: 148b38693227a684b972635212df2697, type: 3}
+    itemModel: {fileID: 9166550061481613202, guid: b79af07f86939661ab3f615e8b5357fc, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes: []
+  - itemName: shield potion
+    itemID: 5
+    itemDesc: give 10 mana point
+    itemIcon: {fileID: 21300000, guid: f1de9e836c79fde4aab8a740ec51eb32, type: 3}
+    itemModel: {fileID: 3721652186381279969, guid: d4876c2f47657a2a0aafd7f11691e23b, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Mana
+      attributeValue: 10
+  - itemName: boost potion
+    itemID: 6
+    itemDesc: give 10 mana point and 10 Heal points
+    itemIcon: {fileID: 21300000, guid: 3ac254c0fa6214047a1df59938ba786f, type: 3}
+    itemModel: {fileID: 7707617416916840937, guid: d1f028bcfe2bfb47d861379c05362644, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Mana
+      attributeValue: 10
+    - attributeName: Health
+      attributeValue: 10
+  - itemName: commun axe
+    itemID: 7
+    itemDesc: a commun axe
+    itemIcon: {fileID: 21300000, guid: 8c8a8792d6774244b82a54e166e8594a, type: 3}
+    itemModel: {fileID: 3815188633470231169, guid: 8967818516b3c7f3683c848a3e47c53d, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 12
+  - itemName: legendary axe
+    itemID: 8
+    itemDesc: a legendary axe
+    itemIcon: {fileID: 21300000, guid: ac540eca270aa13418f2752bd0ebfb3f, type: 3}
+    itemModel: {fileID: 6634105434028124750, guid: 3fdb2051a08a0f75680231ee867aa55a, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 20
+  - itemName: rare axe
+    itemID: 9
+    itemDesc: a rare axe
+    itemIcon: {fileID: 21300000, guid: 1230c5a7c9644124f9ac11bc69548a7d, type: 3}
+    itemModel: {fileID: 2626380706925205599, guid: c73a6fe36c247a403a4d5214ad5ed2ce, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 15
+  - itemName: commun mace
+    itemID: 10
+    itemDesc: a commun mace
+    itemIcon: {fileID: 21300000, guid: b3ac9c39639475c4db54a7b2069e3551, type: 3}
+    itemModel: {fileID: 625947528103767907, guid: 7a23fb56726195eebbb95f33ee756e2b, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 12
+  - itemName: rare mace
+    itemID: 11
+    itemDesc: a rare mace
+    itemIcon: {fileID: 21300000, guid: 4ebb6bd497d40e8438f9d4b1c9746706, type: 3}
+    itemModel: {fileID: 6752870786847296931, guid: 1aec485dea68d3e388109984ddcb8463, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 15
+  - itemName: legendary mace
+    itemID: 12
+    itemDesc: a legendary mace
+    itemIcon: {fileID: 21300000, guid: c7f2f74ac6819e747adc6222539aeac2, type: 3}
+    itemModel: {fileID: 4741200821422806843, guid: db2ce71725dae99d390bafc26c860b95, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 20
+  - itemName: Hammer
+    itemID: 13
+    itemDesc: a big hammer
+    itemIcon: {fileID: 21300000, guid: f736829f6a6ca374db0b45aa141e03b1, type: 3}
+    itemModel: {fileID: 8937805510878017402, guid: d96e4e2f8424b3e53b509dca59e186e2, type: 3}
+    itemValue: 1
+    itemType: 1
+    itemWeight: 5
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes:
+    - attributeName: Damage
+      attributeValue: 30
+  - itemName: legendary key
+    itemID: 14
+    itemDesc: 'a key '
+    itemIcon: {fileID: 21300000, guid: 29bef6f26cd3a0f459442341047e31db, type: 3}
+    itemModel: {fileID: 1036567636718662833, guid: 4adb870d5cbb10a499c21bb3244f6edd, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes: []
+  - itemName: basic key
+    itemID: 15
+    itemDesc: 'a key '
+    itemIcon: {fileID: 21300000, guid: 8657a5c71e7ff6b4fa1d5117f640e397, type: 3}
+    itemModel: {fileID: 5911065234866323385, guid: d930222657bb773f983f4f2cde385e4d, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes: []
+  - itemName: rare key
+    itemID: 16
+    itemDesc: 'a key '
+    itemIcon: {fileID: 21300000, guid: 576b34b0cb6456e40bfc70bc79613c1e, type: 3}
+    itemModel: {fileID: 1170843684158589390, guid: 816d2a8c51c717676af54d67a4119a5f, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 5
+    maxStack: 10
+    indexItemInList: 999
+    rarity: 10
+    itemAttributes: []
