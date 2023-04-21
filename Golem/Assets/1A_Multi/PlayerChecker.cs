@@ -17,5 +17,10 @@ public class PlayerChecker : MonoBehaviourPunCallbacks
             motor.enabled = true;
             thecamera.SetActive(true);
         }
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            motor.enabled = true;
+            thecamera.SetActive(true);
+        }
     }
 }

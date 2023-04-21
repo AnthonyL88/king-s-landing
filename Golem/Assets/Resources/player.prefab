@@ -1410,6 +1410,8 @@ GameObject:
   - component: {fileID: 5009973449538311064}
   - component: {fileID: 2675942167820129989}
   - component: {fileID: 2123051162729291992}
+  - component: {fileID: 7831454559750452782}
+  - component: {fileID: 5342082924373205093}
   m_Layer: 3
   m_Name: player
   m_TagString: Player
@@ -1910,6 +1912,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: {fileID: 2219696527845382538}
   thecamera: {fileID: 7128451607104124814}
+--- !u!114 &7831454559750452782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044336270256353900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e5741cec8a42dc964c8e0a4b55bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionDampTime: 0.25
+--- !u!114 &5342082924373205093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044336270256353900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9597db7c55c44e885b8f74697d5ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 180
+  radius: 1
+  particles: {fileID: 0}
 --- !u!1 &5133807557926768907
 GameObject:
   m_ObjectHideFlags: 0
