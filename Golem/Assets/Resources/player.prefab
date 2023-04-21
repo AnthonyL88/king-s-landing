@@ -1390,6 +1390,7 @@ GameObject:
   - component: {fileID: 399338409987063268}
   - component: {fileID: 8065679864473359179}
   - component: {fileID: 159436022245687635}
+  - component: {fileID: 2219696527845382538}
   - component: {fileID: 2219696527648943470}
   - component: {fileID: 2219696527648943471}
   - component: {fileID: 2219696527648943464}
@@ -1401,7 +1402,6 @@ GameObject:
   - component: {fileID: 2219696527845382554}
   - component: {fileID: 2219696527845382548}
   - component: {fileID: 2219696527845382539}
-  - component: {fileID: 2219696527845382538}
   - component: {fileID: 2219696527845382533}
   - component: {fileID: 2219696527845382534}
   - component: {fileID: 2219696527845382535}
@@ -1521,6 +1521,43 @@ CapsuleCollider:
   m_Height: 0.4
   m_Direction: 1
   m_Center: {x: -0.0144730685, y: 0.17944145, z: 0.012600231}
+--- !u!114 &2219696527845382538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044336270256353900}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75acdee482efdb14cb52ee6f85347d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+  runSpeed: 6
+  turnSpeed: 200
+  attackCooldown: 1.2
+  attackRange: 3
+  rayhit: {fileID: 1370597616668738166}
+  inputFront: w
+  inputBack: s
+  inputLeft: a
+  inputRight: d
+  jumpSpeed: {x: 0, y: 4, z: 0}
+  isDead: 0
+  rayspell: {fileID: 2219696527570976195}
+  currentSpell: 1
+  totalSpell: 2
+  LightningSpellCost: 50
+  LightningSpellGO: {fileID: 8629041618550399286, guid: bebc40ecd233a2847967e5dd1e9d0e48, type: 3}
+  LightningSpellSpeed: 800
+  LightningSpellID: 1
+  LightningSpellImage: {fileID: 21300000, guid: e1599b6f0f132b84bab80282eac6cdfa, type: 3}
+  HealSpellCost: 20
+  HealSpellAmount: 30
+  HealSpellGO: {fileID: 4348393311342291879, guid: 78abb970d4db2544185eaf3754be1bd7, type: 3}
+  HealSpellID: 2
+  HealSpellImage: {fileID: 21300000, guid: b47fa35f22223b142a68aa926277785a, type: 3}
 --- !u!114 &2219696527648943470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,43 +1763,6 @@ MonoBehaviour:
   _questType: MasterQuest
   RewardSpawner: {fileID: 0}
   RewardRef: {fileID: 544958029863280902, guid: d96e4e2f8424b3e53b509dca59e186e2, type: 3}
---- !u!114 &2219696527845382538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5044336270256353900}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75acdee482efdb14cb52ee6f85347d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runSpeed: 6
-  turnSpeed: 200
-  attackCooldown: 1.2
-  attackRange: 3
-  rayhit: {fileID: 1370597616668738166}
-  inputFront: w
-  inputBack: s
-  inputLeft: a
-  inputRight: d
-  jumpSpeed: {x: 0, y: 4, z: 0}
-  isDead: 0
-  rayspell: {fileID: 2219696527570976195}
-  currentSpell: 1
-  totalSpell: 2
-  LightningSpellCost: 50
-  LightningSpellGO: {fileID: 8629041618550399286, guid: bebc40ecd233a2847967e5dd1e9d0e48, type: 3}
-  LightningSpellSpeed: 800
-  LightningSpellID: 1
-  LightningSpellImage: {fileID: 21300000, guid: e1599b6f0f132b84bab80282eac6cdfa, type: 3}
-  HealSpellCost: 20
-  HealSpellAmount: 30
-  HealSpellGO: {fileID: 4348393311342291879, guid: 78abb970d4db2544185eaf3754be1bd7, type: 3}
-  HealSpellID: 2
-  HealSpellImage: {fileID: 21300000, guid: b47fa35f22223b142a68aa926277785a, type: 3}
 --- !u!114 &2219696527845382533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,7 +3347,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2855121920569775773}
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
 --- !u!4 &7128451607104124811 stripped
 Transform:
@@ -3359,6 +3362,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
   m_PrefabInstance: {fileID: 2219696528626662548}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2855121920569775773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128451607104124814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9597db7c55c44e885b8f74697d5ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 180
+  radius: 1
+  particles: {fileID: 0}
 --- !u!1001 &9017498078809078542
 PrefabInstance:
   m_ObjectHideFlags: 0

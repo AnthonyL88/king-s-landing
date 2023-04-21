@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PlayerChecker : MonoBehaviour
+public class PlayerChecker : MonoBehaviourPunCallbacks
 {
     public CharacterMotor motor;
     public GameObject thecamera;
@@ -10,8 +11,11 @@ public class PlayerChecker : MonoBehaviour
 
     public void IsLocalPlayer()
     {
-        Debug.Log("Cam On");
-        motor.enabled = true;
-        thecamera.SetActive(true);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Cam On");
+            motor.enabled = true;
+            thecamera.SetActive(true);
+        }
     }
 }
