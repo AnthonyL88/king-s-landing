@@ -23,7 +23,7 @@ public class enemyAi : MonoBehaviour
     private Animation animations;
     public float enemyHealth;
     public Slider healthbar;
-    private bool isDead = false;
+    public bool isDead = false;
     public int ID { set; get; } = 0;
 
     void Start()
@@ -42,7 +42,7 @@ public class enemyAi : MonoBehaviour
 
         if (!isDead)
         {
-            Target = GameObject.Find("player").transform;
+            Target = GameObject.Find("player(Clone)").transform;
 
 
             Distance = Vector3.Distance(Target.position, transform.position);

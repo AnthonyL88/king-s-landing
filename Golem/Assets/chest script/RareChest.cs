@@ -36,8 +36,6 @@ public class RareChest : MonoBehaviour
         {
             if (Input.GetButtonDown("E"))
             {
-                if (checkkey.list2[3] == true)
-                {
                     _isOpen = true; // is chest open or not
                     _chestAnimatorRef.SetBool(IsOpen, _isOpen); // open or close the chest with animation
 
@@ -143,7 +141,6 @@ public class RareChest : MonoBehaviour
                         _closeTextRef.gameObject.SetActive(false);
                         _openTextRef.gameObject.SetActive(true);
                     }
-                }
             }
 
         }

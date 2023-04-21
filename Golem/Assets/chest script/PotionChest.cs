@@ -31,8 +31,6 @@ public class PotionChest : MonoBehaviour
         {
             if (Input.GetButtonDown("E"))
             {
-                if (checkkey.list2[2] == true)
-                {
                     _isOpen = true; // is chest open or not
                     _chestAnimatorRef.SetBool(IsOpen, _isOpen); // open or close the chest with animation
 
@@ -105,7 +103,6 @@ public class PotionChest : MonoBehaviour
                     }
                 }
               
-            }
 
         }
         else

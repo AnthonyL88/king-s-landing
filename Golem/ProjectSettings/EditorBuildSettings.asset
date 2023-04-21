@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/vrai scene/Menu.unity
+    guid: 81dba4b371fa4d743a82de8c422c1249
+  - enabled: 1
+    path: Assets/vrai scene/Lobby.unity
+    guid: 51b30f7249e268e4d8f944925e1ef35c
+  - enabled: 1
+    path: Assets/vrai scene/Game.unity
+    guid: 19f076a3ad397214cab5122a4b742adf
+  - enabled: 1
+    path: Assets/vrai scene/Options.unity
+    guid: b3602f77c88dcec4681290a55149f423
+  - enabled: 1
+    path: Assets/vrai scene/Multi.unity
+    guid: 120d39eead09944498b2717f10963290
   m_configObjects: {}

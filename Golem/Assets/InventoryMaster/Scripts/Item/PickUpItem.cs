@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-public class PickUpItem : MonoBehaviour
+using Photon.Pun;
+public class PickUpItem : MonoBehaviourPunCallbacks
 {
     public Item item;
     private Inventory _inventory;
@@ -31,7 +32,7 @@ public class PickUpItem : MonoBehaviour
                     _inventory.addItemToInventory(item.itemID, item.itemValue);
                     _inventory.updateItemList();
                     _inventory.stackableSettings();
-                    Destroy(this.gameObject);
+                    PhotonNetwork.Destroy(this.gameObject);
                 }
 
             }

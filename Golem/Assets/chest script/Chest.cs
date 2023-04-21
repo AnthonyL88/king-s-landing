@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Photon.Pun;
 using TMPro;
 using Random = UnityEngine.Random;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     private bool _isInsideTrigger = false;
@@ -51,22 +52,22 @@ public class Chest : MonoBehaviour
                         {
                             // create an axe
                             Rigidbody axeInstance;
-                            axeInstance = Instantiate(axeRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                            axeInstance.AddForce(0f, 150f, 50f);
+                            //axeInstance = PhotonNetwork.Instantiate(axeRef, transform.position, _weaponCreateRef.rotation) as Rigidbody;
+                            //axeInstance.AddForce(0f, 150f, 50f);
                         }
 
                         if (weaponprob == 2)
                         {
                             Rigidbody bowInstance;
-                            bowInstance = Instantiate(bowRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                            bowInstance.AddForce(0f, 150f, 50f);
+                            //bowInstance = PhotonNetwork.Instantiate(bowRef, transform.position, Quaternion.identity);
+                            //bowInstance.AddForce(0f, 150f, 50f);
                         }
 
                         if (weaponprob == 3)
                         {
                             Rigidbody maceInstance;
-                            maceInstance = Instantiate(maceRef, _weaponCreateRef.position, _weaponCreateRef.rotation) as Rigidbody;
-                            maceInstance.AddForce(0f, 150f, 50f);
+                            //maceInstance = PhotonNetwork.Instantiate(maceRef, transform.position, Quaternion.identity);
+                            //maceInstance.AddForce(0f, 150f, 50f);
                         }
 
                         int potionprob = Random.Range(1, 10);
@@ -74,22 +75,22 @@ public class Chest : MonoBehaviour
                         if (potionprob is > 2 and < 6)
                         {
                             Rigidbody healthpotionInstance;
-                            healthpotionInstance = Instantiate(healthPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                            healthpotionInstance.AddForce(0f, 150f, 50f);
+                            //healthpotionInstance = PhotonNetwork.Instantiate(healthPotionRef, transform.position, Quaternion.identity);
+                            //healthpotionInstance.AddForce(0f, 150f, 50f);
                         }
 
                         if (potionprob is > 5 and < 8)
                         {
                             Rigidbody shieldpotionInstance;
-                            shieldpotionInstance = Instantiate(shieldPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                            shieldpotionInstance.AddForce(0f, 150f, 50f);
+                            //shieldpotionInstance = PhotonNetwork.Instantiate(shieldPotionRef, transform.position, Quaternion.identity);
+                            //shieldpotionInstance.AddForce(0f, 150f, 50f);
                         }
 
                         if (potionprob is > 8 and < 11)
                         {
                             Rigidbody boostpotionInstance;
-                            boostpotionInstance = Instantiate(boostPotionRef, _potionCreateRef.position, _potionCreateRef.rotation) as Rigidbody;
-                            boostpotionInstance.AddForce(0f, 150f, 50f);
+                            //boostpotionInstance = PhotonNetwork.Instantiate(boostPotionRef, transform.position, Quaternion.identity);
+                            //boostpotionInstance.AddForce(0f, 150f, 50f);
                         }
 
                         _spawnonetime++;

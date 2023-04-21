@@ -56,7 +56,7 @@ public class Skeleton : MonoBehaviour
 
         if (!isDead)
         {
-            Target = GameObject.Find("player").transform;
+            Target = GameObject.Find("player(Clone)").transform;
 
 
             Distance = Vector3.Distance(Target.position, transform.position);
